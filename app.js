@@ -57,8 +57,10 @@ app.post('/conversation', function(req, res, next) {
   dialog.conversation(params, function(err, results) {
     if (err)
       return next(err);
-    else
+    else {
+      console.log(results);
       res.json({ dialog_id: dialog_id, conversation: results});
+    }
   });
 });
 

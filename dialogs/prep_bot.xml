@@ -47,11 +47,11 @@
                     <output>
                         <prompt selectionType="SEQUENTIAL">
                             <item>Great, looks like we could start with 5 questions (let me know when you're done!)</item>
-                            <item>py1</item>
-                            <item>py2</item>
+                            <item>py1, py2, py3, py4, py5</item>
+                            <!-- <item>py2</item>
                             <item>py3</item>
                             <item>py4</item>
-                            <item>py5</item>
+                            <item>py5</item> -->
                         </prompt>
                     </output>
                     <input>
