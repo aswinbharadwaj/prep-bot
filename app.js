@@ -22,7 +22,8 @@ var express  = require('express'),
   path       = require('path'),
   bluemix    = require('./config/bluemix'),
   extend     = require('util')._extend,
-  watson     = require('watson-developer-cloud');
+  watson     = require('watson-developer-cloud'),
+  twilo      = require('twilio');
 
 // Bootstrap application settings
 require('./config/express')(app);
@@ -69,6 +70,19 @@ app.post('/profile', function(req, res, next) {
     else
       res.json(results);
   });
+});
+
+// Your accountSid and authToken from twilio.com/user/account
+var accountSid = 'AC55a75faf007138fcaabeba87a02409a4';
+var authToken = "868b5b8ef031c9740913e48c201994c9";
+var client = require('twilio')(accountSid, authToken);
+
+client.messages.create({
+    body: "Jenny please?! I love you <3",
+    to: "+15515743732",
+    from: "+14158141829"
+}, function(err, message) {
+    process.stdout.write(message.sid);
 });
 
 // error-handler settings
