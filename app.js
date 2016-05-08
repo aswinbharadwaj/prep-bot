@@ -80,9 +80,8 @@ var client = require('twilio')(accountSid, authToken);
 client.messages.create({
     body: "Jenny please?! I love you <3",
     to: "+15515743732",
-    from: "+14158141829"
+    from: "+17183955320"
 }, function(err, message) {
-    console.log(err);
     process.stdout.write(message.sid);
 });
 
