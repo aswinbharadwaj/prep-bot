@@ -46,8 +46,29 @@
                     </grammar>
                     <output id="pyq_45455">
                         <prompt selectionType="SEQUENTIAL">
-                            <item>Great, looks like we could start with 5 questions (let me know when you're done!)<br/>py1</item>
-                            <item>py2</item>
+                            <item>
+                            <![CDATA[<pre>
+                            Great, looks like we could start with 5 questions (let me know when you're done!)
+                            1: What is the output of the following code?
+                            def multipliers(): return [lambda x : i * x for i in range(4)]
+                            print [m(2) for m in multipliers()]
+                            a. [0,2,4,6]
+                            b. [6,6,4,4]
+                            c. [6,2,6,2]
+                            d. [6,6,6,6]
+                            </pre>]]>
+                            </item>
+                            <action varName="Qid" operator="SET_TO">1</action>
+                            <item>
+                            <![CDATA[<pre>
+                            2. What will be the output of the code? 
+                            a. IndexError
+                            b. ""
+                            c. []
+                            d. Crash
+                            </pre>]]>
+                            <action varName="Qid" operator="SET_TO">2</action>
+                            </item>
                             <item>py3</item>
                             <item>py4</item>
                             <item>py5</item>
@@ -62,38 +83,68 @@
                                     <goto ref="pyq_45455"/>
                                 </output>
                             </default>
+                            <input>
+                                <grammar>
+                                    <item>$ done</item>
+                                    <item>$ Done</item>
+                                </grammar>
+                                <output>
+                                    <prompt selectionType="RANDOM">
+                                        <item>Hope you enjoyed the questions!</item>
+                                    </prompt>
+                                    <goto ref="pyq_45455"/>
+                                </output>
+                            </input>
                         </getUserInput>
-                        <input>
-                            <grammar>
-                               <item>$ done</item>
-                               <item>$ Done</item>
-                            </grammar>
-                            <output>
-                                <prompt selectionType="RANDOM">
-                                    <item>Hope you enjoyed the questions!</item>
-                                </prompt>
-                                <goto ref="pyq_45455"/>
-                            </output>
-                        </input>
                     </output>
                 </input>
         </folder>
         <folder label="PyAnswer" id="pyans_67677">
-                <input>
-                    <grammar>
-                        <item>*</item>
-                    </grammar>
-                    <output id="selection">
+                <if>
+                    <cond varName="Qid"
+                        operator="EQUALS">
+                        1
+                    </cond>
+                    <input>
+                      <grammar>
+                        <item>$ d</item>
+                        <item>$ [6,6,6,6]</item>
+                      </grammar>
+                      <output id="selection">
                         <prompt selectionType="RANDOM">
                             <item>You got it right!</item>
                         </prompt>
-                        <goto ref="pyq"/>
-                    </output>
-                </input>
+                      </output>
+                    </input>
+                    <goto ref="pyq_45455"/>
+                </if>
+                <if>
+                    <cond varName="Qid"
+                        operator="EQUALS">
+                        2
+                    </cond>
+                    <input>
+                      <grammar>
+                        <item>$ a</item>
+                        <item>$ IndexError</item>
+                      </grammar>
+                      <output id="selection">
+                        <prompt selectionType="RANDOM">
+                            <item>You got it right!</item>
+                        </prompt>
+                      </output>
+                      <goto ref="pyq_45455"/>
+                    </input>
+                </if>
         </folder>
         <folder label="Storage"/>
         </folder>
         <folder label="Global"/>
         <folder label="Concepts"/>
     </flow>
+    <variables>
+        <var_folder name="Home">
+             <var name="Qid" type="TEXT" description="The current question id"/>
+        </var_folder>
+    </variables>
 </dialog>
