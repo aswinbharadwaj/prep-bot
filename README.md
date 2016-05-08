@@ -1,4 +1,4 @@
-# Perp Bot
+# Prep Bot
 
 A simple bot that helps you prepare for interviews.
 

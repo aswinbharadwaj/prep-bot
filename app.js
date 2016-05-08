@@ -53,19 +53,37 @@ var dialog_id = process.env.DIALOG_ID || dialog_id_in_json || '<missing-dialog-i
 var dialog = watson.dialog(credentials);
 
 app.post('/conversation', function(req, res, next) {
+
   var params = extend({ dialog_id: dialog_id }, req.body);
   dialog.conversation(params, function(err, results) {
     if (err)
-      return next(err);
+        return next(err);
     else {
       console.log(results);
       res.json({ dialog_id: dialog_id, conversation: results});
     }
   });
+
 });
 
+
+app.get('/twilio', function(req, res, next) {
+
+    // Twilio Credentials
+    // Your accountSid and authToken from twilio.com/user/account
+    var accountSid = 'AC55a75faf007138fcaabeba87a02409a4';
+    var authToken = "868b5b8ef031c9740913e48c201994c9";
+    var client = require('twilio')(accountSid, authToken);
+
+    var params = extend({ dialog_id: dialog_id}, req.body);
+    console.log(req.body);
+
+    dialog.conversation(params, function(err, results) {
+        res.json({ dialog_id: dialog_id, conversation : results});
+    });
+});
 app.post('/profile', function(req, res, next) {
-  var params = extend({ dialog_id: dialog_id }, req.body);
+  var params = req.body;
   dialog.getProfile(params, function(err, results) {
     if (err)
       return next(err);
@@ -74,18 +92,6 @@ app.post('/profile', function(req, res, next) {
   });
 });
 
-// Your accountSid and authToken from twilio.com/user/account
-var accountSid = 'AC55a75faf007138fcaabeba87a02409a4';
-var authToken = "868b5b8ef031c9740913e48c201994c9";
-var client = require('twilio')(accountSid, authToken);
-
-client.messages.create({
-    body: "Jenny please?! I love you <3",
-    to: "+15515743732",
-    from: "+17183955320"
-}, function(err, message) {
-    process.stdout.write(message.sid);
-});
 
 // error-handler settings
 require('./config/error-handler')(app);
