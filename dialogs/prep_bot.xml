@@ -32,12 +32,37 @@
                         <item>What can I learn today?</item>
                         <item>$ what topics do you have</item>
                     </grammar>
-                    <output>
+                    <output id="starter">
                         <prompt selectionType="RANDOM">
                             <item>You can choose from Python, Java, Node or HTML</item>
                         </prompt>
                     </output>
                 </input>
+                <input>
+                    <grammar>
+                        <item>Python</item>
+                        <item>python</item>
+                        <item>$ python</item>
+                    </grammar>
+                    <output>
+                        <prompt selectionType="SEQUENTIAL">
+                            <item>Great, looks like we could start with 5 questions (let me know when you're done!)</item>
+                            <item>py1</item>
+                            <item>py2</item>
+                            <item>py3</item>
+                            <item>py4</item>
+                            <item>py5</item>
+                        </prompt>
+                    </output>
+                    <input>
+                        <grammar>
+                             <item>$ done</item>
+                             <item>$ Done</item>
+                        </grammar>
+                    </input>
+                    <goto ref="starter"/>
+                </input>
+
             </folder>
             <folder label="Storage"/>
         </folder>
