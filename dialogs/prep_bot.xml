@@ -34,7 +34,7 @@
                     </grammar>
                     <output id="selection_34344">
                         <prompt selectionType="RANDOM">
-                            <item>You can choose from Python, Java, Node or HTML</item>
+                            <item>You can choose from Python, Swift or HTML</item>
                         </prompt>
                     </output>
                 </input>
@@ -44,107 +44,152 @@
                         <item>python</item>
                         <item>$ python</item>
                     </grammar>
+
                     <output id="pyq_45455">
                         <prompt selectionType="SEQUENTIAL">
                             <item>
-                            <![CDATA[<pre>
-                            Great, looks like we could start with 5 questions (let me know when you're done!)
-                            1: What is the output of the following code?
-                            def multipliers(): return [lambda x : i * x for i in range(4)]
-                            print [m(2) for m in multipliers()]
-                            a. [0,2,4,6]
-                            b. [6,6,4,4]
-                            c. [6,2,6,2]
-                            d. [6,6,6,6]
-                            </pre>]]>
+                            Great, looks like we could start with 2 questions (let me know when you're done!)%0a
+                            1: What is the output of the following code?%0a
+                            def multipliers(): return [lambda x : i * x for i in range(4)]%0a
+                            print [m(2) for m in multipliers()]%0a
+                            a. [0,2,4,6]%0a
+                            b. [6,6,4,4]%0a
+                            c. [6,2,6,2]%0a
+                            d. [6,6,6,6]%0a
                             </item>
-                            <action varName="Qid" operator="SET_TO">1</action>
                             <item>
-                            <![CDATA[<pre>
-                            2. What will be the output of the code? 
-                            a. IndexError
-                            b. ""
-                            c. []
-                            d. Crash
-                            </pre>]]>
-                            <action varName="Qid" operator="SET_TO">2</action>
+                            2. What will be the output of the code?%0a
+                            a. IndexError%0a
+                            b. ""%0a
+                            c. []%0a
+                            d. Crash%0a
                             </item>
-                            <item>py3</item>
-                            <item>py4</item>
-                            <item>py5</item>
                         </prompt>
                         <getUserInput id="pyres_56566">
-                            <search ref="pyans_67677"/>
+                        <search ref="pyans_67677"/>
+                        <default>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>I am sorry, but that wasn't right.</item>
+                                </prompt>
+                                <goto ref="pyq_45455"/>
+                            </output>
+                        </default>
+                        </getUserInput>
+                    </output>          
+                </input>
+                <input>
+                    <grammar>
+                        <item>Swift</item>
+                        <item>swift</item>
+                        <item>$ swift</item>
+                        <item>* swift *</item>
+                    </grammar>
+                    <output id="swq_65555">
+                        <prompt selectionType="SEQUENTIAL">
+                            <item>
+                            Great, looks like we could start with 4 questions (let me know when you're done!)%0a
+                            1. What is the difference between frame and bound of UIView?%0a
+                            a. Frame is the position and size of the view's rectangle in its own coordinate system; bound is the position and size in the superview's coordinate system%0a
+                            b. Frame is drawing for UIView;bounds is the layout rectangle%0a
+                            c. Bounds is the size of the view%0a
+                            d. Bound is the position and size of the view's rectangle in its own coordinate system frame is the position and size in the superview's coordinate system.
+                            </item>
+                            <item>
+                            2. What is the default coordinate system CoreGraphics framework?%0a
+                            a. Same as UIKit/AppKit%0a
+                            b. CTM%0a
+                            c. ULO%0a
+                            d. LLO%0a
+                            </item>
+                            <item>
+                            3. How do you implement a function with variable number or argument?%0a
+                            a. Use NSArray%0a
+                            b. Use a va_list%0a
+                            c. Use NSDictionary%0a
+                            d. Use a C++ Template%0a
+                            </item>
+                            <item>
+                            4. What is NSURLConnection used for?%0a
+                            a. Handling the lifetime of the NSURLSession%0a
+                            b. Authentication framework for network%0a
+                            c. As a special type of request for background fetching%0a
+                            d. Keeping cookies and other session data for all NSURLConnections in the application%0a
+                            e. As a high level networking abstraction for coordinating groups of related data transfer tasks%0a
+                            </item>
+                        </prompt>
+                        <getUserInput id="swres_98877">
+                            <search ref="swans_44444"/>
                             <default>
                                 <output>
                                     <prompt selectionType="RANDOM">
                                         <item>I am sorry, but that wasn't right.</item>
                                     </prompt>
-                                    <goto ref="pyq_45455"/>
+                                    <goto ref="swq_65555"/>
                                 </output>
                             </default>
-                            <input>
-                                <grammar>
-                                    <item>$ done</item>
-                                    <item>$ Done</item>
-                                </grammar>
-                                <output>
-                                    <prompt selectionType="RANDOM">
-                                        <item>Hope you enjoyed the questions!</item>
-                                    </prompt>
-                                    <goto ref="pyq_45455"/>
-                                </output>
-                            </input>
                         </getUserInput>
-                    </output>
+                    </output>          
+                </input>
+                <input>
+                            <grammar>
+                                <item>done</item>
+                                <item>Done</item>
+                                <item>* done *</item>
+                                <item>* Done *</item>
+                            </grammar>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>Hope you enjoyed the questions!</item>
+                                </prompt>
+                                <goto ref="starter_23233"/>
+                            </output>
                 </input>
         </folder>
         <folder label="PyAnswer" id="pyans_67677">
-                <if>
-                    <cond varName="Qid"
-                        operator="EQUALS">
-                        1
-                    </cond>
-                    <input>
-                      <grammar>
-                        <item>$ d</item>
-                        <item>$ [6,6,6,6]</item>
-                      </grammar>
-                      <output id="selection">
-                        <prompt selectionType="RANDOM">
-                            <item>You got it right!</item>
-                        </prompt>
-                      </output>
-                    </input>
+            <input>
+                <grammar>
+                <item>d</item>
+                <item>[6,6,6,6]</item>
+                <item>a</item>
+                <item>IndexError</item>
+                <item>* d *</item>
+                <item>* [6,6,6,6] *</item>
+                <item>$ a</item>
+                <item>$ IndexError</item>
+                </grammar>
+                    
+                <output id="py_selection">
+                    <prompt selectionType="RANDOM">
+                        <item>You got it right!</item>
+                    </prompt>
                     <goto ref="pyq_45455"/>
-                </if>
-                <if>
-                    <cond varName="Qid"
-                        operator="EQUALS">
-                        2
-                    </cond>
-                    <input>
-                      <grammar>
-                        <item>$ a</item>
-                        <item>$ IndexError</item>
-                      </grammar>
-                      <output id="selection">
-                        <prompt selectionType="RANDOM">
-                            <item>You got it right!</item>
-                        </prompt>
-                      </output>
-                      <goto ref="pyq_45455"/>
-                    </input>
-                </if>
+                </output>
+            </input>
+        </folder>
+        <folder label="SwAnswer" id="swans_44444">
+            <input>
+                <grammar>
+                <item>d</item>
+                <item>Bound is the * system</item>
+                <item>b</item>
+                <item>LLO</item>
+                <item>* Use a va_list *</item>
+                <item>As a special type of request for background fetching</item>
+                <item>* background fetching *</item>
+                </grammar>
+                    
+                <output id="sw_selection">
+                    <prompt selectionType="RANDOM">
+                        <item>You got it right!</item>
+                    </prompt>
+                    <goto ref="swq_65555"/>
+                </output>
+            </input>
         </folder>
         <folder label="Storage"/>
         </folder>
         <folder label="Global"/>
         <folder label="Concepts"/>
     </flow>
-    <variables>
-        <var_folder name="Home">
-             <var name="Qid" type="TEXT" description="The current question id"/>
-        </var_folder>
-    </variables>
 </dialog>
