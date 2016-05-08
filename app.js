@@ -72,6 +72,16 @@ app.post('/conversation', function(req, res, next) {
 
 });
 
+
+app.get('/conversation', function(req, res, next) {
+    var params = extend({ dialog_id: dialog_id}, req.body);
+    console.log(req.body);
+
+    dialog.conversation(params, function(err, results) {
+        res.json({ dialog_id: dialog_id, conversation = results});
+    });
+});
+
 app.post('/profile', function(req, res, next) {
   var params = extend({ dialog_id: dialog_id }, req.body);
   dialog.getProfile(params, function(err, results) {
