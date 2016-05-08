@@ -83,7 +83,7 @@ app.get('/twilio', function(req, res, next) {
     });
 });
 app.post('/profile', function(req, res, next) {
-  var params = req.body;
+  var params = extend({ dialog_id: dialog_id }, req.body);
   dialog.getProfile(params, function(err, results) {
     if (err)
       return next(err);
