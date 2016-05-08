@@ -82,6 +82,7 @@ client.messages.create({
     to: "+15515743732",
     from: "+14158141829"
 }, function(err, message) {
+    console.log(err);
     process.stdout.write(message.sid);
 });
 
