@@ -67,7 +67,7 @@ app.post('/conversation', function(req, res, next) {
 });
 
 
-app.get('/conversation', function(req, res, next) {
+app.get('/twilio', function(req, res, next) {
 
     // Twilio Credentials
     // Your accountSid and authToken from twilio.com/user/account
@@ -79,12 +79,11 @@ app.get('/conversation', function(req, res, next) {
     console.log(req.body);
 
     dialog.conversation(params, function(err, results) {
-        res.json({ dialog_id: dialog_id, conversation = results});
+        res.json({ dialog_id: dialog_id, conversation : results});
     });
 });
-
 app.post('/profile', function(req, res, next) {
-  var params = extend({ dialog_id: dialog_id }, req.body);
+  var params = req.body;
   dialog.getProfile(params, function(err, results) {
     if (err)
       return next(err);
