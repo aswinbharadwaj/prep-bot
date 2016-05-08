@@ -1,33 +1,15 @@
 {
-  "name": "DialogNodejsStarterApp",
-  "version": "0.1.8",
-  "description": "A sample nodejs app for Bluemix that use the Dialog",
+  "name": "PrepBotApp",
+  "version": "1.0.0",
   "engines": {
     "node": ">=0.10.38"
   },
+  "description": "A sample bot that helps prep for interviews",
   "repository": {
     "type": "git",
-    "url": "https://github.com/watson-developer-cloud/dialog-nodejs.git"
+    "url": "https://github.com/aswinbharadwaj/prep-bot.git"
   },
-  "author": "IBM Corp.",
-  "contributors": [
-    {
-      "name": "James Zhang",
-      "email": "jzhang300@us.ibm.com"
-    },
-    {
-      "name": "Eva Xiaohui Luo",
-      "email": "evaluo_xhl@us.ibm.com"
-    },
-    {
-      "name": "German Attanasio Ruiz",
-      "email": "germanatt@us.ibm.com"
-    }
-  ],
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/watson-developer-cloud/dialog-nodejs/issues"
-  },
   "scripts": {
     "start": "node app.js",
     "postinstall": "node dialogs/install-dialogs.js"

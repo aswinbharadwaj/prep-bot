@@ -1,2 +1,4 @@
-node_modules
-/dialogs/dialog-id.json
+.DS_Store
+config/.DS_Store
+dialogs/.DS_Store
+node_modules/

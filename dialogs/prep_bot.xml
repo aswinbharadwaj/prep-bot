@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <flow>
+        <folder label="Main">
+            <output>
+                <prompt selectionType="RANDOM">
+                    <item>Hello, welcome to Prep Bot</item>
+                </prompt>
+                <goto ref="getUserInput_2449614"/>
+            </output>
+            <getUserInput id="getUserInput_2449614">
+                <search ref="folder_2449611"/>
+                <default>
+                    <output>
+                        <prompt selectionType="RANDOM">
+                            <item>I am sorry, I did not understand your question. Please try asking another one.</item>
+                        </prompt>
+                    </output>
+                </default>
+            </getUserInput>
+        </folder>
+        <folder label="Library">
+            <folder label="Live Content" id="folder_2449611">
+                <input>
+                    <grammar>
+                        <item>What prep material do you have?</item>
+                        <item>$ What do you have?</item>
+                        <item>$ list of topics</item>
+                        <item>What * topics * have</item>
+                        <item>$ list topics * available</item>
+                        <item>$ what topics do you have</item>
+                    </grammar>
+                    <output>
+                        <prompt selectionType="RANDOM">
+                            <item>You can choose from Python, Java, Node or HTML</item>
+                        </prompt>
+                    </output>
+                </input>
+            </folder>
+            <folder label="Storage"/>
+        </folder>
+        <folder label="Global"/>
+        <folder label="Concepts"/>
+    </flow>
+</dialog>
