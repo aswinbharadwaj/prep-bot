@@ -52,12 +52,6 @@ var dialog_id = process.env.DIALOG_ID || dialog_id_in_json || '<missing-dialog-i
 // Create the service wrapper
 var dialog = watson.dialog(credentials);
 
-// Twilio Credentials
-// Your accountSid and authToken from twilio.com/user/account
-var accountSid = 'AC55a75faf007138fcaabeba87a02409a4';
-var authToken = "868b5b8ef031c9740913e48c201994c9";
-var client = require('twilio')(accountSid, authToken);
-
 app.post('/conversation', function(req, res, next) {
 
   var params = extend({ dialog_id: dialog_id }, req.body);
@@ -74,6 +68,13 @@ app.post('/conversation', function(req, res, next) {
 
 
 app.get('/conversation', function(req, res, next) {
+
+    // Twilio Credentials
+    // Your accountSid and authToken from twilio.com/user/account
+    var accountSid = 'AC55a75faf007138fcaabeba87a02409a4';
+    var authToken = "868b5b8ef031c9740913e48c201994c9";
+    var client = require('twilio')(accountSid, authToken);
+
     var params = extend({ dialog_id: dialog_id}, req.body);
     console.log(req.body);
 
