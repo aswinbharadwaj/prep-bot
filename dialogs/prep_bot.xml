@@ -24,10 +24,12 @@
                 <input>
                     <grammar>
                         <item>What prep material do you have?</item>
-                        <item>$ What do you have?</item>
+                        <item>$ prep material</item>
+                        <item>Show me the list of topics</item>
                         <item>$ list of topics</item>
                         <item>What * topics * have</item>
                         <item>$ list topics * available</item>
+                        <item>What can I learn today?</item>
                         <item>$ what topics do you have</item>
                     </grammar>
                     <output>
