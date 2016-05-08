@@ -6,10 +6,10 @@
                 <prompt selectionType="RANDOM">
                     <item>Hello, welcome to Prep Bot</item>
                 </prompt>
-                <goto ref="init"/>
+                <goto ref="init_12122"/>
             </output>
-            <getUserInput id="init">
-                <search ref="starter"/>
+            <getUserInput id="init_12122">
+                <search ref="starter_23233"/>
                 <default>
                     <output>
                         <prompt selectionType="RANDOM">
@@ -20,7 +20,7 @@
             </getUserInput>
         </folder>
         <folder label="Library">
-            <folder label="Convo" id="starter">
+            <folder label="Convo" id="starter_23233">
                 <input>
                     <grammar>
                         <item>What prep material do you have?</item>
@@ -32,7 +32,7 @@
                         <item>What can I learn today?</item>
                         <item>$ what topics do you have</item>
                     </grammar>
-                    <output id="selection">
+                    <output id="selection_34344">
                         <prompt selectionType="RANDOM">
                             <item>You can choose from Python, Java, Node or HTML</item>
                         </prompt>
@@ -44,7 +44,7 @@
                         <item>python</item>
                         <item>$ python</item>
                     </grammar>
-                    <output id="pyq">
+                    <output id="pyq_45455">
                         <prompt selectionType="SEQUENTIAL">
                             <item>Great, looks like we could start with 5 questions (let me know when you're done!)<br/>py1</item>
                             <item>py2</item>
@@ -52,33 +52,33 @@
                             <item>py4</item>
                             <item>py5</item>
                         </prompt>
-                        <getUserInput id="pyres">
-                            <search ref="pyans"/>
+                        <getUserInput id="pyres_56566">
+                            <search ref="pyans_67677"/>
                             <default>
                                 <output>
                                     <prompt selectionType="RANDOM">
                                         <item>I am sorry, but that wasn't right.</item>
                                     </prompt>
-                                    <goto ref="pyq"/>
+                                    <goto ref="pyq_45455"/>
                                 </output>
                             </default>
                         </getUserInput>
+                        <input>
+                            <grammar>
+                               <item>$ done</item>
+                               <item>$ Done</item>
+                            </grammar>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>Hope you enjoyed the questions!</item>
+                                </prompt>
+                                <goto ref="pyq_45455"/>
+                            </output>
+                        </input>
                     </output>
-                    <input>
-                        <grammar>
-                             <item>$ done</item>
-                             <item>$ Done</item>
-                        </grammar>
-                        <output>
-                            <prompt selectionType="RANDOM">
-                                <item>Hope you enjoyed the questions!</item>
-                            </prompt>
-                            <goto ref="pyq"/>
-                        </output>
-                    </input>
                 </input>
         </folder>
-        <folder label="Answer" id="pyans">
+        <folder label="PyAnswer" id="pyans_67677">
                 <input>
                     <grammar>
                         <item>*</item>
