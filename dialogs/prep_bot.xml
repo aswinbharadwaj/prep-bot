@@ -46,7 +46,7 @@
                     </grammar>
                     <output id="pyq">
                         <prompt selectionType="SEQUENTIAL">
-                            <item>Great, looks like we could start with 5 questions (let me know when you're done!)<br>py1</item>
+                            <item>Great, looks like we could start with 5 questions (let me know when you're done!)<br/>py1</item>
                             <item>py2</item>
                             <item>py3</item>
                             <item>py4</item>
@@ -77,8 +77,8 @@
                         </output>
                     </input>
                 </input>
-            </folder>
-            <folder label="Answer" id="pyans">
+        </folder>
+        <folder label="Answer" id="pyans">
                 <input>
                     <grammar>
                         <item>*</item>
@@ -90,8 +90,8 @@
                         <goto ref="pyq"/>
                     </output>
                 </input>
-            </folder>
-            <folder label="Storage"/>
+        </folder>
+        <folder label="Storage"/>
         </folder>
         <folder label="Global"/>
         <folder label="Concepts"/>
